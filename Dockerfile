@@ -9,8 +9,7 @@ RUN apk --no-cache add gettext ca-certificates openssl jq \
     && wget https://github.com/quantumew/jamal/releases/download/v1.0.0/jamal-v1.0.0.tar.gz -O /tmp/jamal.tar.gz \
     && tar xzvf jamal.tar.gz \
     && mv jamal-*/linux/amd64/jamal /usr/local/bin \
-    && chmod a+x /usr/local/bin/kubectl /usr/local/bin/dumb-init /usr/local/bin/helm /usr/local/bin/jamal \
-    && apk --no-cache del ca-certificates openssl
+    && chmod a+x /usr/local/bin/kubectl /usr/local/bin/dumb-init /usr/local/bin/helm /usr/local/bin/jamal
 
 ENTRYPOINT ["/usr/local/bin/dumb-init","--","/usr/local/bin/docker-entrypoint.sh"]
 CMD ["bash"]
